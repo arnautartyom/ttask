@@ -1,0 +1,29 @@
+@mixin font-body {
+    font-size: 1rem;
+    line-height: 2rem;
+	font-weight: 400;
+    letter-spacing: 0.049rem;
+    color: $colorDark;
+}
+
+@mixin font-body-large {
+	font-size: 1.4rem;
+	letter-spacing: 0.04rem;
+    line-height: 1.8rem;
+}
+
+@mixin font-body-high {
+    line-height: 1.4rem;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+}
+
+@mixin font-body-medium {
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    line-height: 1.8rem;
+}
+
+@mixin font-body-small {
+    font-size: 0.9rem;
+}

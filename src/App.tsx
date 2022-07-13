@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import ProductsList from './components/ProductsList';
+import { IData } from './types/types';
 
-function App() {
+export default function App() {
+  const [data, setData] = useState<IData[]>([]);
+
+  useEffect(() => {
+      fetch('https://cool-sprinkles-c8fad1.netlify.app/data.json')
+      .then((response) => {
+          return response.json();
+      })
+      .then((data: IData[]) => {
+          setData(data);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="main">
+        <section className="products">
+          <ProductsList products={data}/>
+      </section>
+    </main>
   );
 }
-
-export default App;
